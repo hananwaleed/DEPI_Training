@@ -1,0 +1,3 @@
+mixin Printer {
+  void printDoc() {}
+}
