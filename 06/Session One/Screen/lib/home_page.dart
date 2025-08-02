@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
-import 'toast_no_context.dart';
-import 'toast_context.dart';
+import 'package:fl_chart/fl_chart.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+    );
+  }
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,37 +24,73 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
-        centerTitle: true,
-        title: Text(
-          'Home Page',
+        title: const Text(
+          'test',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 24,
+            fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
         ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ToastNoContext(),
-                ));
-              },
-              child: Text("Flutter Toast No Context"),
+            Container(
+              width: 250,
+              height: 250,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.teal[100],
+              ),
             ),
-            SizedBox(height: 24.0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => ToastContext(),
-                ));
-              },
-              child: Text("Flutter Toast Context"),
+            SizedBox(
+              width: 200,
+              height: 200,
+              child: PieChart(
+                PieChartData(
+                  sectionsSpace: 2,
+                  centerSpaceRadius: 30,
+                  sections: [
+                    PieChartSectionData(
+                      value: 40,
+                      color: Colors.red,
+                      title: '40%',
+                      radius: 50,
+                      titleStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    PieChartSectionData(
+                      value: 30,
+                      color: Colors.blue,
+                      title: '30%',
+                      radius: 50,
+                      titleStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    PieChartSectionData(
+                      value: 30,
+                      color: Colors.green,
+                      title: '30%',
+                      radius: 50,
+                      titleStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
