@@ -9,16 +9,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.secondary,
+      backgroundColor: Colors.white70,
       appBar: AppBar(
-        backgroundColor: AppColors.secondary,
+        backgroundColor: Colors.white70,
         elevation: 0,
         title: Text(
           "Welcome back!",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         centerTitle: true,
@@ -77,38 +77,40 @@ class HomeScreen extends StatelessWidget {
               content: "Traveling soon ✈️ Can't wait to explore new places!",
             ),
             const SizedBox(height: 10),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfileScreen(),
-                  ),
-                );
-              },
-              child: Container(
-                width: 199,
-                height: 53,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      spreadRadius: 0.2,
-                      blurRadius: 2,
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfileScreen(),
                     ),
-                  ],
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: LinearGradient(
-                    colors: [AppColors.primary, AppColors.secondary],
+                  );
+                },
+                child: Container(
+                  width: 199,
+                  height: 53,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        spreadRadius: 0.2,
+                        blurRadius: 2,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: LinearGradient(
+                      colors: [AppColors.primary, AppColors.secondary],
+                    ),
                   ),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Profile Screen",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  child: const Center(
+                    child: Text(
+                      "Profile Screen",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
